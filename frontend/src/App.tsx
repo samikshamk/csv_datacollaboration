@@ -1,11 +1,13 @@
-import './App.css'
+import Dashboard from "./pages/Dashboard";
+import Navbar from "./components/Navbar";
 
 function App() {
 
   return (
-    <>
-    <h1>Welcome to the CSV Data Collaboration Platform</h1>
-    </>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 font-sans transition-colors duration-200">
+      <Navbar />
+      <Dashboard />
+    </div>
   )
 }
 
