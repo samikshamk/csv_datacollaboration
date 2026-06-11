@@ -1,4 +1,5 @@
 import Heading from "../components/Heading";
+import Pagination from "../components/Pagination";
 import RecordsTable from "../components/RecordsTable";
 import SearchBar from "../components/SearchBar";
 
@@ -9,6 +10,7 @@ function Dashboard() {
         <Heading title="CSV Collaboration" style="mb-4 text-center"/>
         <SearchBar />
         <RecordsTable />
+        <Pagination />
       </div>
     </div>
   );

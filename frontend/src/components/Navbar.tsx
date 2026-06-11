@@ -14,7 +14,7 @@ function Navbar() {
         >
           <Heading title="CSV Collaboration" style="mb-0"/>
         </a>
-        <div className="hidden lg:block">
+        <div>
           {/* Theme Toggle */}
           <button
             onClick={toggleDark}
