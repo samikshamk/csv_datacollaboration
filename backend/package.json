@@ -10,9 +10,16 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mysql": "^2.18.1",
+    "pg": "^8.21.0"
+  },
   "devDependencies": {
-    "@types/node": "^25.9.2",
-    "tsx": "^4.22.4",
-    "typescript": "^6.0.3"
+    "@types/pg": "^8.20.0",
+    "nodemon": "^2.0.22"
   }
 }

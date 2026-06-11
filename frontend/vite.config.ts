@@ -8,6 +8,9 @@ export default defineConfig({
     tailwindcss()
   ],
 server: {
+    proxy: {
+      '/csv': 'http://localhost:5001',
+    },
     watch: {
       usePolling: true,
     },
