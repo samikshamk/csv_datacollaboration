@@ -1,4 +1,5 @@
 import Heading from "../components/Heading";
+import RecordsTable from "../components/RecordsTable";
 import SearchBar from "../components/SearchBar";
 
 function Dashboard() {
@@ -7,6 +8,7 @@ function Dashboard() {
       <div className="mx-auto px-4 py-10">
         <Heading title="CSV Collaboration" style="mb-4 text-center"/>
         <SearchBar />
+        <RecordsTable />
       </div>
     </div>
   );
