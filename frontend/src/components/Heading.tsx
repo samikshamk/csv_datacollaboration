@@ -1,10 +1,11 @@
 interface HeadingProps {
-    title: string
+    title: string,
+    style?: string
 }
 
-const Heading = ({ title }: HeadingProps) => {
+const Heading = ({ title, style }: HeadingProps) => {
   return (
-    <h2 className="text-lg text-center font-semibold text-gray-900 dark:text-white mb-4">{title}</h2>
+    <h2 className={`text-lg font-semibold text-gray-900 dark:text-white ${style}`}>{title}</h2>
   )
 }
 
