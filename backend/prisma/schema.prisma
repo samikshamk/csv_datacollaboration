@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Record {
+  id     Int    @id
+  postId Int
+  name   String
+  email  String
+  body   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Conflict {
+  id          Int      @id @default(autoincrement())
+  recordId    Int
+  fieldName   String
+  oldValue    String
+  newValue    String
+  resolved    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}

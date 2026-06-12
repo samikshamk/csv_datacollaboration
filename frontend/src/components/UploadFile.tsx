@@ -4,47 +4,39 @@ import { message } from "../helper/useToast";
 
 import Heading from "./Heading";
 
-function UploadFile() {
-  const [progress, setProgress] = useState(0);
+interface Props {
+  onSuccess: () => void;
+}
+
+function UploadFile({ onSuccess }: Props) {
+  const [progress, setProgress] = useState(0); //the progress bar for file upload
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const uploadFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
 
     const csvFile = event.target.files?.[0];
-    if (!csvFile) return;
+    if (!csvFile) return; // No file selected
 
-    const formData =
-      new FormData();
+    const formData = new FormData();
 
-    formData.append(
-      "file",
-      csvFile
-    );
+    formData.append("file",csvFile);
 
     try {
       await axios.post(`${baseUrl}/upload`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        headers: { "Content-Type": "multipart/form-data"},
 
-        onUploadProgress:
-          (event) => {
-
-          const percentage =
-            Math.round(
-              (event.loaded * 100) /
-              (event.total || 1)
-            );
-
+        onUploadProgress: (event) => {
+          const percentage = Math.round( (event.loaded * 100) /  (event.total || 1) );
           setProgress(percentage);
         }
       });
       message("File uploaded successfully!", "success");
     } catch (error) {
-      message.error("Error uploading file.", "error");
+      message("Error uploading file. Please try again", "error");
     }
-
+    onSuccess();
   };
+
   return (
     <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow mb-4 min-w-[20vw] max-w-[80vw] mx-auto">
         <Heading title="Upload CSV File" style="mb-2"/>
